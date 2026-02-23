@@ -155,7 +155,7 @@ Create initContainers for Drupal
 {{- end }}
 {{- if not (eq .Values.drupal.siteRoot "/") }}
 - name: init-site-root
-  image: 'alpine:3.10'
+  image: 'alpine:3.12'
   command:
     - /bin/sh
     - '-c'
