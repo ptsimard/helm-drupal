@@ -171,6 +171,10 @@ spec:
           {{- if .Values.drupal.volumeMounts }}
           {{- include "common.tplvalues.render" (dict "value" .Values.drupal.volumeMounts "context" $) | nindent 10 }}
           {{- end }}
+          {{- if .Values.drupal.restore.enabled }}
+          - name: backup
+            mountPath: /backup
+          {{- end }}
       {{- include "drupal.connectionPooler" . | nindent 6 }}
       {{- if .Values.drupal.imagePullSecrets }}
       imagePullSecrets:
