@@ -156,10 +156,9 @@ spec:
 
               # Rebuild caches
               drush -y cache:rebuild
-
               # Extra installation scripts
               {{- if .Values.drupal.postInstallScripts }}
-              {{ toYaml .Values.drupal.postInstallScripts | nindent 14}}
+              {{ .Values.drupal.postInstallScripts | nindent 14}}
               {{- end }}
         env:
           {{- include "drupal.env" . | nindent 10 }}

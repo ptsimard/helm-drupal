@@ -84,7 +84,7 @@ spec:
 
               # Post Upgrade scripts
               {{- if .Values.drupal.postUpgradeScripts }}
-              {{ toYaml .Values.drupal.postUpgradeScripts | nindent 14}}
+              {{ .Values.drupal.postUpgradeScripts | nindent 14}}
               {{- end }}
         env:
           {{- include "drupal.env" . | nindent 10 }}
